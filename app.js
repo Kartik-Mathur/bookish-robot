@@ -34,6 +34,21 @@ app.post('/todos', async (req, res) => {
     }
 })
 
+app.get('/todos/delete/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        await Todos.deleteOne({
+            id
+        })
+        res.redirect('/todos');
+    } catch (error) {
+        res.status(500).json({
+            message: "Unable to add Todo",
+            error
+        })
+    }
+})
+
 mongoose.connect(process.env.MONGO_URL).then(() => {
     app.listen(PORT, () => {
         console.log(`http://localhost:` + PORT);
