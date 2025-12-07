@@ -38,7 +38,7 @@ app.get('/todos/delete/:id', async (req, res) => {
     try {
         const { id } = req.params;
         await Todos.deleteOne({
-            id
+            _id: id
         })
         res.redirect('/todos');
     } catch (error) {
