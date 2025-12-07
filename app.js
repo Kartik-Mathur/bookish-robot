@@ -5,6 +5,10 @@ const Todos = require('./models/Todos.model');
 const app = express();
 const PORT = 4444;
 require('dotenv').config();
+const cors = require('cors');
+app.use(cors({
+    origin: "https://legendary-octo-lamp.vercel.app/"
+}))
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
