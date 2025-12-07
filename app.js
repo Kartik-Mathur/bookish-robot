@@ -7,7 +7,8 @@ const PORT = 4444;
 require('dotenv').config();
 const cors = require('cors');
 app.use(cors({
-    origin: "https://legendary-octo-lamp.vercel.app/"
+    origin: "https://legendary-octo-lamp.vercel.app",
+    credentials: true
 }))
 
 app.use(express.urlencoded({ extended: true }));
